@@ -2,6 +2,6 @@
 path = "client",
 url = "./client"
 [submodule "server"]
-path = "sever",
+path = "server",
 url = "./server"
  
