@@ -1,7 +1,18 @@
 const { posts, users, likes } = require("../../../models");
+const jwt = require("jsonwebtoken");
 const socketIo = (io) => {
+  const connectedUser = [];
   io.on("connection", (socket) => {
-    console.log("user connected" + socket.id);
+    // connectedUser.push(socket.id);
+    // console.log(connectedUser);
+    // io.use((socket, next) => {
+    //   if (socket.handshake.auth && socket.handshake.auth.token) {
+    //     next();
+    //   } else {
+    //     next(new Error("Not Authorized"));
+    //   }
+    // });
+    console.log("user connected " + socket.id);
     // ==============================
     socket.on("LoadAllPosts", async () => {
       try {

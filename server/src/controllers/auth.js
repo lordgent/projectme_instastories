@@ -114,3 +114,27 @@ exports.signIn = async (req, res) => {
     });
   }
 };
+
+exports.getUser = async (req, res) => {
+  try {
+    const data = await users.findOne({
+      where: {
+        id: req.userid.id,
+      },
+    });
+
+    if (!data) {
+      return res.status(400).send({
+        status: "Unauthorized",
+      });
+    }
+    res.send({
+      status: "success",
+      data,
+    });
+  } catch (error) {
+    res.status(500).send({
+      status: "server error",
+    });
+  }
+};
