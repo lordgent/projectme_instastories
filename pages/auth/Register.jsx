@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../../components/layout/Layout";
 import { API } from "../api/be";
 import swal from "sweetalert";
-
+import Cookie from "js-cookie";
+import Router from "next/router";
 function Register() {
   const [form, setform] = useState({
     fullname: "",
@@ -10,6 +11,12 @@ function Register() {
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    if (Cookie.get("tokenkey")) {
+      Router.push("/");
+    }
+  }, []);
   const handleChange = (e) => {
     setform({
       ...form,

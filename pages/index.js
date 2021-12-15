@@ -1,5 +1,4 @@
-import Head from "next/head";
-import Image from "next/image";
+import React, { useEffect } from "react";
 import EventsActivity from "../components/events/EventsActivity";
 import FeedComp from "../components/feed/FeedComp";
 import Layout from "../components/layout/Layout";

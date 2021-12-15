@@ -1,8 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { io } from "socket.io-client";
 import Image from "next/image";
+import Cookie from "js-cookie";
 let socket;
 function FeedComp() {
   const [posts, setPosts] = useState([]);
@@ -31,13 +33,13 @@ function FeedComp() {
         {posts?.map((item, idx) => (
           <div className="p-4 border-2 bg-white mb-4" key={idx}>
             <div className="h-80 bg-gray-300 rounded">
-              <Image
-                src={`https://res.cloudinary.com/dtujegrtj/image/upload/v1639261778/${item?.imagepost}.jpg`}
-                alt={item?.imagepost}
-                width="500"
-                height="480"
-                className="h-90"
-              />
+              <div className="h-full bg-red-400">
+                <img
+                  src={`https://res.cloudinary.com/dtujegrtj/image/upload/v1639261778/${item?.imagepost}.jpg`}
+                  alt={item?.imagepost}
+                  className="h-full w-full"
+                />
+              </div>
             </div>
             <div className="flex justify-between mt-2">
               <span className="flex ">

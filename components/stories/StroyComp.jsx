@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 function StroyComp() {
+  const [modal, setmodal] = useState(false);
+
   return (
     <div className="w-full bg-white shadow rounded  border-gray-300 mx-auto px-2">
-      <button className="text-gray-50 bg-gradient-to-r from-blue-400 to-purple-500 shadow px-4 py-1 rounded  text-xs">
+      <button
+        onClick={() => setmodal(true)}
+        className="text-gray-50 bg-gradient-to-r from-blue-400 to-purple-500 shadow py-2 px-2 rounded text-xs"
+      >
         POSTS +
       </button>
       <p className="text-gray-500 text-sm font-semibold">Stories</p>
